@@ -8,8 +8,8 @@ const part2 = readFileSync(__dirname + "/input.txt", "utf-8")
       .flatMap((row) => row.split("-"))
       .map((value) => parseInt(value))
   )
-  .reduce((count, pair) => {
-    const res =
+  .reduce(
+    (count, pair) =>
       (pair[0] < pair[2] &&
         pair[1] < pair[2] &&
         pair[0] < pair[3] &&
@@ -17,8 +17,9 @@ const part2 = readFileSync(__dirname + "/input.txt", "utf-8")
       (pair[0] > pair[2] &&
         pair[1] > pair[2] &&
         pair[0] > pair[3] &&
-        pair[1] > pair[3]);
-    console.log(pair, res);
-    return res ? count : count + 1;
-  }, 0);
+        pair[1] > pair[3])
+        ? count
+        : count + 1,
+    0
+  );
 console.log(part2);
